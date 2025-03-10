@@ -1,1 +1,36 @@
+%{
 
+#include <stdio.h>
+
+%}
+
+
+
+%%
+
+[0-9]+      { printf("NUMBER: %s\n", yytext); }
+
+[a-zA-Z]+   { printf("WORD: %s\n", yytext); }
+
+.           { printf("SPECIAL CHARACTER: %s\n", yytext); }
+
+
+%%
+
+
+
+int main() 
+{
+yylex();  // Start lexical analysis
+    
+return 0;
+
+}
+
+
+int yywrap() 
+{
+    
+return 1;  // Indicates end of input
+
+}
